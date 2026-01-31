@@ -2,7 +2,10 @@ package com.rafaelmaschietto.ecotrack.controller;
 
 import com.rafaelmaschietto.ecotrack.model.Categoria;
 import com.rafaelmaschietto.ecotrack.service.CategoriaService;
+import jakarta.validation.Valid; // Importação necessária
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +14,7 @@ import java.util.List;
 @RequestMapping("/api/categorias")
 @CrossOrigin("*")
 public class CategoriaController {
+
     @Autowired
     private CategoriaService service;
 
@@ -20,12 +24,14 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public Categoria criar(@RequestBody Categoria categoria) {
-        return service.salvar(categoria);
+    public ResponseEntity<Categoria> criar(@Valid @RequestBody Categoria categoria) {
+        Categoria novaCategoria = service.salvar(categoria);
+        return ResponseEntity.status(HttpStatus.CREATED).body(novaCategoria);
     }
 
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable Long id) {
+    public ResponseEntity<Void> excluir(@PathVariable Long id) {
         service.excluir(id);
+        return ResponseEntity.noContent().build();
     }
 }

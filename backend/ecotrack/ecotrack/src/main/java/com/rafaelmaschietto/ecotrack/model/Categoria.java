@@ -1,6 +1,8 @@
 package com.rafaelmaschietto.ecotrack.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Categoria {
@@ -8,6 +10,8 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "O nome da categoria é obrigatório")
+    @Size(min = 3, message = "O nome da categoria deve ter pelo menos 3 letras")
     private String nome;
 
     public Long getId() {

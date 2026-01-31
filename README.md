@@ -43,9 +43,9 @@ O sistema reflete as etapas reais do processo de revenda de itens usados (Econom
 2.  **Configuração do Banco:**
     No arquivo `backend/src/main/resources/application.properties`, ajuste as credenciais do seu banco de dados:
     ```properties
-    spring.datasource.url=jdbc:mysql://localhost:3306/ecotrack
-    spring.datasource.username=root
-    spring.datasource.password=
+    spring.datasource.url=jdbc:mysql://localhost:3306/NOME_DO_BANCO_CRIADO
+    spring.datasource.username=USUARIO
+    spring.datasource.password=SENHA
     ```
 3.  **Rodar o Backend:**
     Execute a aplicação através do IntelliJ (classe `EcoTrackApplication`).

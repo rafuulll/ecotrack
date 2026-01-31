@@ -1,6 +1,7 @@
 package com.rafaelmaschietto.ecotrack.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 public class Produto {
@@ -12,10 +13,20 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "O nome do produto é obrigatório")
     private String nome;
+
+    @NotNull(message = "O preço bruto é obrigatório")
+    @Positive(message = "O preço bruto deve ser maior que zero")
     private Double precoBruto;
+
+    @NotNull(message = "A taxa é obrigatória")
+    @Min(value = 0, message = "A taxa não pode ser menor que 0")
+    @Max(value = 100, message = "A taxa não pode ser maior que 100")
     private Double taxa;
+
     private Double precoLiquido;
+
     private String status;
 
     public Long getId() {
