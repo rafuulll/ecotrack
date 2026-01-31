@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container">
+        <h1>EcoTrack</h1>
+    </div>
+</header>
+
+<main class="container conteudo">
+    <section class="sidebar">
+        <div class="card">
+            <h2 class="section-titulo">Novo Produto</h2>
+
+            <div class="form-group">
+                <input type="text" id="nome" placeholder="Nome do produto">
+                <input type="number" id="preco" placeholder="Preço Bruto (R$)">
+
+                <div class="taxa-input">
+                    <label>Taxa de Serviço (%)</label>
+                    <input type="number" id="taxa" min="0" max="100" value="20">
+                </div>
+
+                <div class="select-input">
+                    <label>Categoria</label>
+                    <select id="categoriaSelect">
+                        <option value="">Sem Categoria</option>
+                    </select>
+                </div>
+
+                <button onclick="cadastrar()" class="btn-rosa">
+                    Cadastrar Produto
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-lista">
+        <div id="listaProdutos" class="produtos-grid"></div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
