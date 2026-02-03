@@ -2,7 +2,7 @@ package com.rafaelmaschietto.ecotrack.controller;
 
 import com.rafaelmaschietto.ecotrack.model.Categoria;
 import com.rafaelmaschietto.ecotrack.service.CategoriaService;
-import jakarta.validation.Valid; // Importação necessária
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

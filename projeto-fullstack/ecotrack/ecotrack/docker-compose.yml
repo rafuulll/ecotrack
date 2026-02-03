@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: ecotrack-db
+    restart: always
+    environment:
+      - MYSQL_DATABASE=ecotrack
+      - MYSQL_ROOT_PASSWORD=root  # Senha definida para o banco do Docker
+    ports:
+      - "3307:3306"
+
+  app:
+    build: .
+    container_name: ecotrack-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      # Note que a senha 'root' deve bater com a definida acima
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/ecotrack?createDatabaseIfNotExist=true&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  frontend:
+    image: nginx:alpine
+    container_name: ecotrack-frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html

@@ -12,46 +12,70 @@ O sistema reflete as etapas reais do processo de revenda de itens usados (Econom
 
 ## 🚀 Tecnologias Utilizadas
 
+### Infraestrutura & Containerização
+- **Docker & Docker Compose**: Orquestração completa do ambiente.
+- **Nginx**: Servidor utilizado para servir o Frontend de forma otimizada.
+
 ### Backend
-- **Java 17** com **Spring Boot 3**
+- **Java 17** com **Spring Boot 3**.
 - **Spring Data JPA**: Para persistência e manipulação de dados.
-- **MySQL**: Banco de dados relacional para armazenamento seguro.
-- **Relacionamentos SQL**: Implementação de `@ManyToOne`.
-- **Maven**: Gerenciamento de dependências.
+- **MySQL 8.0**: Banco de dados relacional.
+- **Maven**: Gerenciamento de dependências e automação de build.
 
 ### Frontend
 - **HTML5 & CSS3**: Interface intuitiva e responsiva.
-- **JavaScript (ES6+)**: Consumo de API REST utilizando **Fetch API** para uma experiência dinâmica.
+- **JavaScript (ES6+)**: Consumo de API REST utilizando **Fetch API**.
 
 ## 🛠️ Funcionalidades
 - **CRUD Completo:** Criação, leitura, atualização e exclusão de itens.
-- **Gestão de Status:** Atualização em tempo real da etapa em que o produto se encontra.
-- **Integração Front-Back:** Comunicação fluida entre a interface e o servidor MySQL.
+- **Gestão de Status:** Atualização em tempo real da etapa do produto.
+- **Ambiente Isolado:** Execução garantida via containers.
 
-## 🔧 Como Executar o Projeto
+---
+
+## 🐳 Como Executar com Docker (Recomendado)
+
+Este projeto está totalmente dockerizado, permitindo que você suba o Banco, o Backend e o Frontend com apenas um comando.
 
 ### Pré-requisitos
-- Java 17 ou superior instalado.
-- MySQL Server ativo.
-- Uma IDE de sua preferência (IntelliJ IDEA recomendada).
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado e rodando.
 
 ### Passo a Passo
+
 1.  **Clone o repositório:**
     ```bash
     git clone [https://github.com/rafuulll/ecotrack.git](https://github.com/rafuulll/ecotrack.git)
+    cd ecotrack
     ```
-2.  **Configuração do Banco:**
-    No arquivo `backend/src/main/resources/application.properties`, ajuste as credenciais do seu banco de dados:
-    ```properties
-    spring.datasource.url=jdbc:mysql://localhost:3306/NOME_DO_BANCO_CRIADO
-    spring.datasource.username=USUARIO
-    spring.datasource.password=SENHA
+
+2.  **Gere o pacote do Backend (Skip Tests):**
+    Navegue até a pasta onde está o arquivo `pom.xml` e gere o arquivo `.jar` ignorando os testes unitários (que buscam banco externo):
+    ```bash
+    ./mvnw clean package -DskipTests
     ```
-3.  **Rodar o Backend:**
-    Execute a aplicação através do IntelliJ (classe `EcoTrackApplication`).
-4.  **Rodar o Frontend:**
-    Basta abrir o arquivo `frontend/index.html` em qualquer navegador moderno.
+
+3.  **Suba a aplicação completa:**
+    Na raiz do projeto (onde está o arquivo `docker-compose.yml`), execute:
+    ```bash
+    docker compose up --build
+    ```
+
+4.  **Acesse o sistema:**
+    - **Interface Web:** [http://localhost](http://localhost) (Porta 80)
+    - **API Endpoints:** [http://localhost:8080/api/produtos](http://localhost:8080/api/produtos)
 
 ---
+
+## 🔧 Configuração Manual (Desenvolvimento)
+
+Caso prefira rodar fora do Docker:
+
+1.  **Banco de Dados:** Certifique-se de que o MySQL está rodando e crie o schema `ecotrack`.
+2.  **Backend:** Ajuste `backend/src/main/resources/application.properties` com suas credenciais e execute a classe `EcoTrackApplication`.
+3.  **Frontend:** Abra o arquivo `frontend/index.html` em seu navegador.
+
+---
+
 ### Contato
-Desenvolvido por **Rafael Maschietto Mastromauro** [LinkedIn]https://www.linkedin.com/in/rafael-maschietto-mastromauro-6632aa2b8/?trk=opento_sprofile_topcard | [E-mail] rafammastro@gmail.com
+Desenvolvido por **Rafael Maschietto Mastromauro**
+[LinkedIn](https://www.linkedin.com/in/rafael-maschietto-mastromauro-6632aa2b8/) | [E-mail](mailto:rafammastro@gmail.com)
