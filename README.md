@@ -1,6 +1,6 @@
 # EcoTrack - Gestão de Curadoria e Vendas
 
-O **EcoTrack** é uma solução Full Stack desenvolvida para otimizar o gerenciamento de produtos em brechós parceiros ou para vendedores independentes. O foco do projeto é permitir que o usuário tenha controle total sobre o ciclo de vida de cada peça, garantindo uma operação organizada e eficiente.
+O **EcoTrack** é uma solução FullStack desenvolvida para otimizar o gerenciamento de produtos em brechós parceiros ou para vendedores independentes. O foco do projeto é permitir que o usuário tenha controle total sobre o ciclo de vida de cada produto, garantindo uma operação organizada e eficiente.
 
 ## 📋 O Fluxo de Negócio
 O sistema reflete as etapas reais do processo de revenda de itens usados (Economia Circular):
@@ -70,13 +70,11 @@ Este projeto está totalmente dockerizado, permitindo que você suba o Banco, o 
 
     No Windows:
     ```bash
-    cd ecotrack
     ./mvnw.cmd clean package -DskipTests
     ```
 
     No Linux/Mac:
     ```bash
-    cd ecotrack
     ./mvnw clean package -DskipTests
     ```
 
