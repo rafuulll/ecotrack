@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       - MYSQL_DATABASE=ecotrack
-      - MYSQL_ROOT_PASSWORD=root  # Senha definida para o banco do Docker
+      - MYSQL_ROOT_PASSWORD=root
     ports:
       - "3307:3306"
 
@@ -19,7 +19,6 @@ services:
     depends_on:
       - db
     environment:
-      # Note que a senha 'root' deve bater com a definida acima
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/ecotrack?createDatabaseIfNotExist=true&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root

@@ -10,6 +10,10 @@ O sistema reflete as etapas reais do processo de revenda de itens usados (Econom
 3.  **Anunciar:** Preparação do item para plataformas de venda.
 4.  **Vendido:** Conclusão do ciclo, gerando baixa automática no sistema.
 
+<p align="center">
+  <img src="screenshots/preview_sistema.png" width="800" alt="Interface do EcoTrack">
+</p>
+
 ## 🚀 Tecnologias Utilizadas
 
 ### Infraestrutura & Containerização
@@ -21,6 +25,7 @@ O sistema reflete as etapas reais do processo de revenda de itens usados (Econom
 - **Spring Data JPA**: Para persistência e manipulação de dados.
 - **MySQL 8.0**: Banco de dados relacional.
 - **Maven**: Gerenciamento de dependências e automação de build.
+- **Springdoc OpenAPI (Swagger)**: Documentação interativa da API.
 
 ### Frontend
 - **HTML5 & CSS3**: Interface intuitiva e responsiva.
@@ -30,6 +35,18 @@ O sistema reflete as etapas reais do processo de revenda de itens usados (Econom
 - **CRUD Completo:** Criação, leitura, atualização e exclusão de itens.
 - **Gestão de Status:** Atualização em tempo real da etapa do produto.
 - **Ambiente Isolado:** Execução garantida via containers.
+
+---
+
+## 📖 Documentação da API (Swagger)
+
+A API conta com documentação interativa completa. Com o sistema rodando, você pode testar todos os endpoints, verificar os modelos de dados e as descrições de cada operação:
+
+🔗 **Link:** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+<p align="center">
+  <img src="screenshots/swagger.png" width="800" alt="Documentação Swagger">
+</p>
 
 ---
 
@@ -44,13 +61,22 @@ Este projeto está totalmente dockerizado, permitindo que você suba o Banco, o 
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/rafuulll/ecotrack.git](https://github.com/rafuulll/ecotrack.git)
+    git clone https://github.com/rafuulll/ecotrack.git
     cd ecotrack
     ```
 
 2.  **Gere o pacote do Backend (Skip Tests):**
-    Navegue até a pasta onde está o arquivo `pom.xml` e gere o arquivo `.jar` ignorando os testes unitários (que buscam banco externo):
+   Acesse a pasta onde está o código-fonte e gere o arquivo `.jar` ignorando os testes unitários (que buscam banco externo):
+
+    No Windows:
     ```bash
+    cd ecotrack
+    ./mvnw.cmd clean package -DskipTests
+    ```
+
+    No Linux/Mac:
+    ```bash
+    cd ecotrack
     ./mvnw clean package -DskipTests
     ```
 
