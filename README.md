@@ -1,4 +1,4 @@
-# EcoTrack - Gestão de Curadoria e Vendas
+# EcoTrack - Gestão de Produtos Usados
 
 O **EcoTrack** é uma solução FullStack desenvolvida para otimizar o gerenciamento de produtos em brechós parceiros ou para vendedores independentes. O foco do projeto é permitir que o usuário tenha controle total sobre o ciclo de vida de cada produto, garantindo uma operação organizada e eficiente.
 
